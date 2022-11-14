@@ -15,7 +15,6 @@ public class HumanClientTest {
         Mockito.verify(clientMock,
                 Mockito.never()).happyHourEnded(bar);
         bar.startHappyHour();
-        //error
         Mockito.verify(clientMock,
                 Mockito.times(1)).happyHourStarted(bar);
         Mockito.verify(clientMock,
@@ -30,7 +29,7 @@ public class HumanClientTest {
 
     @Test
     public void removeObserver() {
-        Bar bar = new StringBar(null);
+        Bar bar = new StringBar();
         HumanClient clientMock = Mockito.mock(HumanClient.class);
         bar.addObserver(clientMock);
         bar.removeObserver(clientMock);

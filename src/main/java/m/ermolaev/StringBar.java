@@ -18,10 +18,16 @@ public class StringBar extends Bar{
     @Override
     public void startHappyHour() {
         happyHour = true;
+        for (int i = 0; i < observers.size(); i++){
+            observers.get(i).happyHourStarted(this);
+        }
     }
 
     @Override
     public void endHappyHour() {
         happyHour = false;
+        for (int i = 0; i < observers.size(); i++){
+            observers.get(i).happyHourEnded(this);
+        }
     }
 }
